@@ -1,0 +1,77 @@
+// 宿舍樓的初始層數
+FLOOR: 10
+
+// 每層的初始房間數
+ROOM: 20
+
+// 每間房的初始容量（即入住人數）
+CAPACITY: 8
+
+// 學生狀態初始值，依次為：體重、金錢、知識、魅力
+WEIGHT: 120
+MONEY: 10000
+KNOWLEDGE: 60
+CHARM: 70
+HEALTH: 60
+LOOKS: 65
+
+// 每單位重量食物可以增加的體重
+FOOD_WEIGHT: 3
+// 每單位重量食物的價格
+FOOD_COST: 50
+
+// 每單位時間學習減少的體重
+STUDY_WEIGHT: 1
+// 每單位時間學習增加的知識
+STUDY_KNOWLEDGE: 3
+
+// 每單位時間打工賺取的金錢
+WORK_MONEY: 20
+// 每單位時間工作減少的體重
+WORK_WEIGHT: 3
+
+// 男生獨有
+// 每單位時間運動減少的體重
+EXERCISE_WEIGHT: 5
+// 每單位時間運動增加的健康
+EXERCISE_HEALTH: 5
+
+// 女生獨有
+// 每單位時間化妝消耗的金錢
+MAKEUP_MONEY: 100
+// 每單位化妝增加的容貌
+MAKEUP_LOOKS: 8
+
+// 體重增量
+// 男生体重增量
+WEIGHT_INC_MALE = 2 * FOOD_TAKEN * FOOD_WEIGHT - 0.5 * STUDY_TIME  * STUDY_WEIGHT - 1.5 * WORK_TIME * WORK_WEIGHT - 2 * EXERCISE_TIME * EXERCISE_WEIGHT
+// 女生体重增量
+WEIGHT_INC_FEMALE = 2 * FOOD_TAKEN * FOOD_WEIGHT - 0.5 * STUDY_TIME  * STUDY_WEIGHT - 1.5 * WORK_TIME * WORK_WEIGHT
+
+// 金钱增量
+// 男生金钱增量
+MONEY_INC_MALE = 0.8 * WORK_TIME * WORK_MONEY - 1.2 * FOOD_TAKEN * FOOD_COST
+// 女生金錢增量
+MONEY_INC_FEMALE = 0.8 * WORK_TIME * WORK_MONEY - 1.2 * FOOD_TAKEN * FOOD_COST - 2 * MAKEUP_TIME * MAKEUP_MONEY
+
+// 容貌增量
+LOOKS_INC = 1.5 * MAKEUP_TIME * MAKEUP_LOOKS
+
+// 健康增量
+HEALTH_INC = 1.5 * EXERCISE_TIME * EXERCISE_HEALTH
+
+// 知識增量
+KNOWLEDGE_INC = 0.6 * STUDY_TIME * STUDY_KNOWLEDGE
+
+// 魅力增量
+// 男生魅力增量
+CHARM_INC_MALE = 1.5 * KNOWLEDGE_INC - 0.2 * WEIGHT_INC_MALE + 3 * HEALTH_INC
+
+// 女生魅力增量
+CHARM_INC_FEMALE = 1.5 * KNOWLEDGE_INC - 0.2 * WEIGHT_INC_FEMALE + 3 * LOOKS_INC
+
+// 可否建立戀愛關係的相對魅力差的閾值
+LOVE_THRESHOLD: 0.2
+
+// 第三者插足是否成功的二階魅力差的閾值
+LOVER_CHANGE_THRESHOLD: 0.5
